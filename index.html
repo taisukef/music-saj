@@ -1,9 +1,4 @@
-<!-- ジャケット画像付きのシンプルな音楽プレイヤー、背景はぼんやりさせたジャケット画像、画面の下にはプレイリストをHTML1ファイルでつくって by OpenAI API -->
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="icon" href="data:">
     <title>simple music player</title>
     <style>
         body, html {
@@ -102,10 +97,10 @@ const show = async (fn) => {
 
   audio_main.src = bin2url(bin);
   audio_main.play();
-  audio_main.onend = () => {
+  audio_main.onended = () => {
     for (let i = 0; i < data.length; i++) {
-      if (data.fn == fn) {
-        show(i + 1 == data.length ? data[i + 1].fn : data[0].fn);
+      if (data[i].fn == fn) {
+        show(i + 1 == data.length ? data[0].fn : data[i + 1].fn);
         break;
       }
     }
